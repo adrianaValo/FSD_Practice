@@ -96,5 +96,56 @@ body {
   .btn:hover {
     background-color: var(--secondary-color-dark);
   }
+/* the styling of the body */
 
- 
+  .explore_menu {
+      margin-top : 4rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:2rem;
+  }
+
+  .explore_submenu {
+      padding: 2rem;
+      background-color: var(--primary-color-light);
+      border: 2px solid transparent;
+      border-radius: 10px;
+      transition: 0.3s;;
+  }
+
+  .explore_submenu:hover {
+      background-color: var(--primary-color-extra-light);
+      border-color: var(--secondary-color);
+  }
+
+  .explore_submenu span {
+      display: inline-block;
+      padding: 2px 9px;
+      margin-bottom: 1rem;
+      font-size: 1.75rem;
+      color: var(--white);
+      background-color: var(--secondary-color-dark);
+      border-radius: 5px;
+  }
+
+  .explore_submenu h4 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--white);
+  }
+
+  .explore_submenu p {
+      margin-bottom: 1rem;
+      color: var(--text-light);
+  }
+
+  .explore_submenu a {
+      color: var(--white);
+      transition: 0.3s;
+  }
+
+  .explore_submenu a:hover {
+      color: var(--secondary-color);
+  }
+
