@@ -26,44 +26,69 @@
                 <li class= "link"><a href= "#">Search</a></li>
 
                 <li class= "link"><a href= "#">Preferences</a></li>
-                <li class= "link"><a href= "#">Log out</a></li>
+                <!--<li class= "link"><a href= "#">Log out</a></li> -->
             </ul>
 
            <button class= "btn">Quick Search</button>
             
         
         </nav>
-
+        <!--Body-->
         <div class="explore_menu">
 
             <div class="explore_submenu">
               <span><i class="ri-boxing-fill"></i></span>
               <h4>IP/MPLS</h4>
               <p>
-                IP-MPLS Description
+                Multiprotocol Label Switching- Layer 3 VPN Solution
               </p>
-              <a href="#">To IP/MPLS Products<i class="ri-arrow-right-line"></i></a>
+              <a href="ip-mpls.html">To IP/MPLS Products<i class="ri-arrow-right-line"></i></a>
             </div>
 
             <div class="explore_submenu">
               <span><i class="ri-heart-pulse-fill"></i></span>
               <h4>INTERNET</h4>
               <p>
-                INTERNET Description
+                Data of the Customers connected to the Vodafone IP-Backbone
               </p>
-              <a href="#">To Internet Products <i class="ri-arrow-right-line"></i></a>
+              <a href="internet.html">To Internet Products <i class="ri-arrow-right-line"></i></a>
             </div>
 
             <div class="explore_submenu">
               <span><i class="ri-run-line"></i></span>
               <h4>EBS</h4>
               <p>
-                EBS Description
+                Ethernet Business Service/ Switched Ethernet- Layer 2 VPN Solution
               </p>
-              <a href="#">To EBS Products <i class="ri-arrow-right-line"></i></a>
+              <a href="ebs.html">To EBS Products <i class="ri-arrow-right-line"></i></a>
             </div>
             
           </div>
+
+          <!--Quicksearch Form-->
+          <div>
+              <form id= "quick-search-form" name= "quicksearchForm" action= "customer-list.html" onsubmit= " if (this.quicksearch.value === '') {
+                  alert ('Please enter one or more search terms first.');
+                 return false; };
+                 return true">
+                  <input id= "quickksearch-main" name= "quicksearch" title= "Quick Search" placeholder= "Enter the customer name" autofocus required>
+                  <input id= "find" type= "submit" value= "Quick Search">
+              </form>
+          </div>
+
+          <div id= "footer">
+          <ul class= "nav-links-footer">
+            <li class= "link-footer"><a href= "#">Home  </a></li>
+            <li class= "link-footer"><a href= "#">New  </a></li>
+            <li class= "link-footer"><a href= "#">Browse  </a></li>
+            <li class= "link-footer"><a href= "#">Search  </a></li>
+            <li class= "link-footer"><a href= "#">Reports  </a></li>
+
+            <li class= "link-footer"><a href= "#">Preferences  </a></li>
+            <li class= "link-footer"><a href= "#" style= "margin-right: 1ex;">Log out  </a>"adriana.olteanu@vodafone.com"</li>
+            <!--<li class= "link"><a href= "#">Log out</a></li> -->
+        </ul>
+    </div>
 </body>
 
 </html>
