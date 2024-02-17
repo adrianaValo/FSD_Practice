@@ -1,0 +1,61 @@
+
+Login to MySQL Server and add this command:
+
+mysql -u root -p
+mysql -h host_name_ip -u root -p
+==========================================
+
+Create a Superuser:
+
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'the_secure_password'
+
+=======================================================================
+
+Create a DB and Table:
+
+create database databasename;
+
+Create a table:
+
+Data type:
+
+- numeric
+- date and time
+- string
+
+============================================================================
+
+Unique Key:
+
+-  the column cannot store the same values.
+
+CREATE TABLE
+table_name(
+col1 data_type,
+col2 data_type UNIQUE,
+...
+);
+
+ Primary Keys:
+
+- It helps to uniquely recognize each record in a table.
+It contains unique values and not NULL values.
+
+CREATE TABLE
+Persons (
+ID int NOT NULL,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Age int,
+CONSTRAINT PK_Person PRIMARY KEY
+(ID,
+);
+
+Foreign Keys:
+
+- It is used to prevent actions that would impact connections between tables.
+
+====================================================
+
+SELECT DISTINCT:
+
