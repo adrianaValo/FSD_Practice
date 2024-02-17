@@ -8,39 +8,44 @@
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
     <title>IP/MPLS</title>
     <link rel="stylesheet" href="ip-mpls.css" type="text/css">
+    
 </head>
 
 <body>
     
-    <div class= "select-container">
-        <select class= "select-box">
-
-        <option value= "">Net/Location</option>
-        <option value= "">VPN</option>
-        <option value= "">Location</option>
-        <option value= "">IPv4-Subnet</option>
-        <option value= "">IPv6-Subnet</option>
-        </select>
-
-        <div class= "icon-container">
-            <i class= "fa-arrow-down"></i>
+    <div class= "dropdown">
+        <div class= "select">
+            <span class= "selected">Net/Location</span>
+            <div class= "caret"></div>
         </div>
 
-        <select class= "select-box">
+        <ul class= "menu">
+            <li>VPN</li>
+            <li>Location</li>
+            <li>IPv4-Subnet</li>
+            <li class= "active">Net/Location</li>
+            <li>IPv6-Subnet</li>
+        </ul>
 
-            <option value= "">Router/Interfaces</option>
-            <option value= "">Router</option>
-            <option value= "">Router-Attributs</option>
-            <option value= "">IPv4-Subnet</option>
-            </select>
-    
-        <div class= "icon-container">
-            <i class= "fa-arrow-down"></i>
-        </div>
-
-        
     </div>
 
+    <div class= "dropdown">
+        <div class= "select">
+            <span class= "selected">Router/Interfaces</span>
+            <div class= "caret"></div>
+        </div>
+
+        <ul class= "menu">
+            <li>Router</li>
+            <li>Interfaces</li>
+            <li>Router-Attribute</li>
+            <li class= "active">Router/Interfaces</li>
+            
+        </ul>
+
+
+    
+    <script src= "ip-mpls.js"></script>
 </body>
 
 </html>
