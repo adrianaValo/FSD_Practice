@@ -14,12 +14,12 @@
 body {
     font-family: "Poppins", sans-serif;
     padding: 2.5em;
-    background: #0e0e0e;
+    background-color: var(--primary-color);
     min-height: 100vh;
     display: flex;
-    justify-content: center;
     align-items:flex-start;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
     
     
   }
@@ -35,7 +35,7 @@ body {
   }
 
   .select {
-    background: #1c1c1c;
+    background-color: var(--secondary-color);
     color: #fff;
     display: flex;
     justify-content: space-between;
@@ -49,14 +49,14 @@ body {
 
   /* Clicked styles (added later in JS) */
   .select-clicked {
-      border: 1px #269a3d solid;
+      border:  var(--secondary-color-dark);
       box-shadow: 0 0 0.8em #2649a26;
 
 
   }
 
   .select:hover {
-    background-: #373737;
+    background: var(--secondary-color-dark);
   }
 
   .caret {
