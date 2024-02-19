@@ -1,0 +1,1 @@
+alert("This is the first JS example");
