@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Function Demo</h1>
+
+    <script>
+        // simple function
+        function test() {
+            console.log("Hello function called");
+        }
+
+        test();
+
+        // parametrized function
+        function add(a, b) {
+            var num1 = a + b;
+            var num2 = a - b;
+            return num1 * num2;
+        }
+
+        let result = add(3,2);
+        console.log("Result: ", result);
+
+        //function returning function
+        function multiply(a,b) {
+            var result = a *b;
+            return function() {
+                console.log("Result of FRF: ", result);
+            }
+
+        };
+        var funct = multiply(3,4);
+        funct();
+
+        // IIFE (Immediately Invoked Function Expression)
+        // syntax: () ();
+
+        (function() {document.write("Welcome to IIFE")})();
+
+        // Arrow function
+        //Syntax: () =>
+
+        // normal arrow function
+        let print = () => document.write("<br> Welcome to Arrow function");
+        print();
+
+        // Parametrized arrow function
+        let multi= (a,b) => a * b;
+        document.write("<br>Arrow function multiply: "+multi(3,5));
+
+        // IIFE with arrow function
+        (() => console.log("IIFE with arrow function")) ();
+    </script>
+    
+</body>
+</html>
