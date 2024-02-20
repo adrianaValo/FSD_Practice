@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        var num1 = prompt("Enter the first number");
+        var num2 = prompt("Enter th second number");
+        var operator = prompt("Enter operator +, -, *, /, >, < ");
+
+        let x = parseInt(num1);
+        let y = parseInt(num2);
+
+        document.write("First number is: " + x + "<br>");
+        document.write("Second number is: " + y + "<br>");
+        document.write("Operator is: " + operator + "<br>");
+
+        function MyOperator(x,y) {
+
+            if(operator == "+") {
+                return x + y;
+            } else 45if(operator == "-") {
+                return x - y;
+
+            } else if (operator == "*"){
+                return x * y;
+
+            }    else if (operator == "/" )  {
+                return x / y;
+            } else if (operator == ">") {
+                return x > y; 
+            } else if (operator == "<") {
+                return x < y;
+            }
+        }
+          
+
+        var result = MyOperator(x,y);
+        document.write("Result is: " + result);
+
+    </script>
+    
+</body>
+</html>
