@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Maps in JS</h1>
+
+    <p>A Map holds Key-value Pair, where the key can be any datatype</p>
+    <p>Map always remembers the original order of insertion of keys</p>
+    <p>We can get the size of map any time</p>
+
+    <ol>
+        Map has many methods
+        <li>new Map(): This will create new Map Object</li>
+        <li>set(): sets the value for a key in a map</li>
+        <li>clear(): Removes all the elements from the map</li>
+        <li>has(): returns true if the key exists</li>
+        <li>get(): get the value of the key in the map</li>
+        <li>size(): returns the number of the elements in the map</li>
+    </ol>
+
+    <script>
+        // Javascript maps
+
+        var map = new Map();
+        map.set(101, "Alex");
+        map.set(102, "John");
+        map.set(103, "Peter");
+        map.set(104, "Nikunj");
+        map.set(105, "Amin");
+        map.set(106, "Ana");
+
+        console.log(map);
+        console.log("Has 103 user? :", map.has(103));
+
+        console.log("Get the value of 103 user: ", map.get(103));
+
+        console.log("Get the value of 106 user: ", map.get(106));
+
+        console.log("Delete user 104: " + map.delete(104));
+        console.log(map);
+
+        console.log("Get the Bob user: ", map.get("Bob"));
+
+        map.clear();
+
+        console.log(map);
+
+
+
+    </script>
+    
+</body>
+</html>

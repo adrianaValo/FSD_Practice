@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        let name="Nikunj Soni";
+
+        console.log(name);
+
+        //01 get the length
+        console.log("Length: "+name.length);
+
+        let len=name.length;
+        console.log(`Length is : ${len}`);
+
+
+        //02 slice a string
+
+        let slice =name.slice(0,7);
+        console.log(`Slice : ${slice}`); // =>  Nikunj
+
+
+        let slice1=name.slice(6); // => Soni
+        console.log(`Sclice 6 : ${slice1}`);
+
+
+        let slice2=name.slice(-9); // => kunj Soni
+        console.log(`Sclice -9 : ${slice2}`);
+
+        // 03 substring method
+
+        let name1 = "Hello World";
+        let sub1 = name1.substring(0,5);
+        console.log("Substring between 0-5: "+sub1);
+
+        let msg = "Good evening everyone!";
+        console.log("Old String: " ,msg);
+
+        let sub2 = msg.substring(5,16);
+
+        console.log("Substring between 5-16: " + sub2);
+
+        // 04 Replace a string
+        let newMsg = msg.replace("evening", "Morning");
+        console.log("String replace: " + newMsg);
+
+        let data = "Hello! User, your details mentioned below, user: 1";
+
+        let newData = data.replaceAll("User", "userId");
+        console.log(newData);
+
+        // 05 
+
+
+    </script>
+    
+</body>
+</html>
