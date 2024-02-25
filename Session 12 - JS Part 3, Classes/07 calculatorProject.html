@@ -30,6 +30,30 @@
         }
 
         //create for addition/multiplication and division
+
+        function sub() {
+            var first, second;
+            first = Number(document.getElementById("firstInput").value);
+            second = Number(document.getElementById("secondInput").value);
+
+            document.getElementById("result").value = first - second;
+        }
+
+        function multiply() {
+            var first, second;
+            first = Number(document.getElementById("firstInput").value);
+            second = Number(document.getElementById("secondInput").value);
+
+            document.getElementById("result").value = first * second;
+        }
+
+        function divide() {
+            var first, second;
+            first = Number(document.getElementById("firstInput").value);
+            second = Number(document.getElementById("secondInput").value);
+
+            document.getElementById("result").value = first / second;
+        }
     </script>
 </body>
 </html>
