@@ -10,9 +10,8 @@ function DemoTimer() {
         let interval;
 
         if(isActive) {
-            interval = setInterval(()=> {
-                setSeconds((prevSeconds)=> prevSeconds + 1);
-            }, 1000);
+           let
+                
         }
         return() => clearInterval(interval);
     }, [isActive]);
