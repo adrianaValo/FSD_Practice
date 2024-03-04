@@ -10,6 +10,8 @@ import Home from './components/Home';
 import Contact from './components/Contact';
 
 import UniversityList from './components/UniversityList';
+import UnList from './components/UnList';
+import AxiosGetExample from './components/AxiosGetExample';
 
 
 
@@ -24,6 +26,8 @@ function App() {
             <Route path='/about' element={<AboutUs/>}></Route>
             <Route path='/contact' element={<Contact/>}></Route>
             <Route path='/list' element={<UniversityList/>}></Route>
+            <Route path= '/unlist' element= {<UnList/>}></Route>
+            <Route path= '/example' element= {<AxiosGetExample/>}></Route>
       </Routes>
 
     

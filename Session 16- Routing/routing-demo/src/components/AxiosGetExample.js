@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 
-function UniversityList(){
+function AxiosGetExample(){
 
     const [users,setUsers]=useState([]);
     const getData= async()=>{
@@ -13,7 +13,7 @@ function UniversityList(){
             
             //backend data fetch: http://localhost:8080/api/auth/users/
             //task:http://universities.hipolabs.com/search?country=india
-            const resp= await axios.get('https://jsonplaceholder.typicode.com/users');
+            const resp=await axios.get('https://jsonplaceholder.typicode.com/posts');
             console.log(resp.data);
             setUsers(resp.data);
             
@@ -28,28 +28,24 @@ function UniversityList(){
 
     return(
         <div className="container">
-            <h1 className="bg-secondary text-warning">List Users</h1>
-            <h2>Task: to set the data in table</h2>
-            <h2 className="text-center">User List</h2>
+            <h1 className="bg-secondary text-warning">Universities List In ROMANIA</h1>
+            
+            <h2 className="text-center">Example Axios GET</h2>
             <table className="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Id </th> <th>Name </th> <th>Username </th> <th>Email </th> <th>Address </th> <th>Phone </th> <th>Website </th> <th>Company </th>
+                        <th>User ID</th> <th>ID</th> <th>Title</th> <th>Body</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
                         users.map((item)=>{
                             return(<tr key={item.id}>
+                                <td>{item.userId}</td>
                                 <td>{item.id}</td>
-                                <td>{item.name}</td>
-                                <td>{item.username}</td>
-                                <td>{item.email}</td>
-                                <td>{item.address.street}, {item.address.zipcode}</td>
-
-                                <td>{item.phone}</td>
-                                <td>{item.website}</td>
-                                <td>{item.company.name}</td>
+                                <td>{item.title}</td>
+                                <td>{item.body}</td>
+                                
                             </tr>)
                         })
                     }
@@ -58,4 +54,4 @@ function UniversityList(){
         </div>
     )
 }
-export default UniversityList;
+export default AxiosGetExample;
