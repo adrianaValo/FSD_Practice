@@ -3,3 +3,19 @@ useEffect Hook:
 - We can use it to render the data after it was changed
 
 - when you want to do something in the background, using the timer
+
+
+The useEffect Hook allows you to perform side effects in your components.
+
+Some examples of side effects are: fetching data, directly updating the DOM, and timers.
+
+useEffect accepts two arguments. The second argument is optional.
+
+useEffect(<function>, <dependency>)
+
+==========================================================================
+
+useEffect(() => {
+  //Runs on the first render
+  //And any time any dependency value changes
+}, [prop, state]);

@@ -3,9 +3,25 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import UseStateCase from "./components/UseStateCase";
+import ButtonOnOff from "./components/ButtonOnOff";
+import HandleEventExample from "./components/HandleEventExample";
+import UseStateColorExample from "./components/UseStateColorExample";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+root.render(
+  <div>
+    <App />
+
+    <UseStateCase />
+
+    <ButtonOnOff />
+
+    <HandleEventExample />
+
+    <UseStateColorExample />
+  </div>
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
