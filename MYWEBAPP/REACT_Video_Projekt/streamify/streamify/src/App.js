@@ -8,7 +8,7 @@ import "bootstrap/dist/js/bootstrap.bundle.js";
 import Feed from "./components/Feed";
 import VideoDetail from "./components/VideoDetail";
 import SearchFeed from "./components/SearchFeed";
-import Navbar from "./components/Navbar";
+import Navigation from "./components/Navbar";
 
 const App = () => (
   <BrowserRouter>
@@ -16,7 +16,7 @@ const App = () => (
       className="d-flex align-items-center justify-content-center border p-3 rounded"
       style={{ backgroundColor: "#000" }}
     >
-      <Navbar />
+      <Navigation />
       <Routes>
         <Route exact path="/" element={<Feed />} />
         <Route path="/video/:id" element={<VideoDetail />} />

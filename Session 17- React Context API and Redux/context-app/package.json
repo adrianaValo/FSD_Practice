@@ -1,5 +1,5 @@
 {
-  "name": "hook-app",
+  "name": "context-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
