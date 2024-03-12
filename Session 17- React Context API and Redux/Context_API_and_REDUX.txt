@@ -1,0 +1,6 @@
+Context API:
+
+- change the language of the site
+- change the Dark-Mode
+
+================================
