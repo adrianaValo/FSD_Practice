@@ -8,7 +8,7 @@ const SUBMIT_FORM = "SUBMIT_FORM";
 const formReducer = (state, action) => {
   switch (action.type) {
     case UPDATE_FILED:
-      return { ...state, [action.field]: action.value };
+      return { ...state, [action.field]: action.value }; //returns the previous state
     case SUBMIT_FORM:
       console.log("Form Submitted", state);
       return state;
@@ -37,38 +37,42 @@ function SimpleForm() {
   };
 
   return (
-    <div>
+    <div className="container mt-3">
       <h3>Simple Form Using useReducer</h3>
-
       <form onSubmit={handleSubmit}>
-        <label>FirstName:</label>
-        <input
-          type="text"
-          value={formState.firstname}
-          onChange={(e) => {
-            handleFieldChange("firstname", e.target.value);
-          }}
-        ></input>
-
-        <label>LastName:</label>
-        <input
-          type="text"
-          value={formState.lastname}
-          onChange={(e) => {
-            handleFieldChange("lastname", e.target.value);
-          }}
-        ></input>
-
-        <label>Email</label>
-        <input
-          type="text"
-          value={formState.email}
-          onChange={(e) => {
-            handleFieldChange("email", e.target.value);
-          }}
-        ></input>
-
-        <button type="submit">Submit</button>
+        <div className="form-group">
+          <label htmlFor="firstName">FirstName:</label>
+          <input
+            type="text"
+            className="form-control"
+            id="firstName"
+            value={formState.firstname}
+            onChange={(e) => handleFieldChange("firstname", e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="lastName">LastName:</label>
+          <input
+            type="text"
+            className="form-control"
+            id="lastName"
+            value={formState.lastname}
+            onChange={(e) => handleFieldChange("lastname", e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            className="form-control"
+            id="email"
+            value={formState.email}
+            onChange={(e) => handleFieldChange("email", e.target.value)}
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
       </form>
     </div>
   );

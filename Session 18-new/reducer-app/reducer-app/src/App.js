@@ -6,6 +6,7 @@ import "bootstrap/dist/js/bootstrap.bundle.js";
 import Counter from "./component/Counter";
 import AgeCounter from "./component/AgeCounter";
 import SimpleForm from "./component/SimpleForm";
+import Weather from "./component/Weather";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Counter />
       <AgeCounter />
       <SimpleForm />
+      <Weather />
     </div>
   );
 }
