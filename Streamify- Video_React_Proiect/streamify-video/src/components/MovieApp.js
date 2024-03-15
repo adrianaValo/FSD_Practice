@@ -22,6 +22,7 @@ const MovieApp=()=>{
             
             const response=await axios.get(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${searchTerm}`);
             if(response.data.Response === "True"){
+                console.log(response.data);
                 
                 setMovies(response.data.Search);
             }else{
