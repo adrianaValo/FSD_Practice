@@ -1,0 +1,27 @@
+Steps:
+
+1. Create React-App:
+
+	npx create-react-app streamify-video
+
+2. Install all the dependencies:
+
+	Axios- to fetch the data from API: npm install axios
+
+	Boostrap- for the styling: npm install react-bootstrap bootstrap
+
+	Router-DOM- to navigate between the components: npm i react-router-dom
+
+	Dot-env- for the security of the API-Key: npm i dot-env
+
+3. Create the components:
+
+	MovieApp.js
+	
+	MovieList.js
+
+	MovieItem.js
+
+	SearchBar.js
+
+	
