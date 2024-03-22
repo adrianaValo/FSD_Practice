@@ -17,11 +17,75 @@ Steps:
 3. Create the components:
 
 	MovieApp.js
+
+		-> create UI here and fetch the data with Axios, save in the useState
+		-> include the SearchBar
+		-> include the MovieList
 	
 	MovieList.js
 
 	MovieItem.js
 
 	SearchBar.js
+
+4. npm start -> Start the App
+
+5. MovieApp component:
+
+	-> first, fetch the list and pass to the SearchBar, with the help of fetchMovies const
+
+	-> useState() for managing the state of loading and errors and movies
+
+	-> const response=await axios.get(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${searchTerm}`);
+            if(response.data.Response === "True"){
+                console.log(response.data);
+                
+                setMovies(response.data.Search);
+            }else{
+                setError(response.data.Error);
+            }
+
+	-> Handling the error: catch (error) {
+            setError('An Error Occured While Fetching the Data:',error);
+        }finally{
+            setLoading(false);
+        }
+
+6. In the MovieApp- add the SearchBar component
+
+	-> in SearchBar we are passing the props onSearch of the searchTerm
+
+	-> add the useState, that first is null
+
+	-> this returns one form: input + button (Search)
+
+	-> create the method onChange: handles the change
+
+	-> add the component SearchBar to the MovieApp 
+
+7. MovieList component- pass the movies using the props
+
+	-> returns the movies in the form of a list
+
+	-> pass the MovieItem here
+
+8. MovieItem- we want to load the movies into MovieList
+
+	-> pass hier also the prop movie
+
+9. in MovieApp, under the errors, pass the Movielist
+
+10. Make the styling with Bootstrap.
+
+11. Display the items in lines and columns with Bootstrap components.
+
+12. Create the Header with Bootstrap, using Navbar.
+
+	-> Add the Header to the App.js
+
+13. Style the SearchBar using BS: Button, Form, FormControl, InputGroup  and BiSearch React icon.
+
+14. Create Footer and add it to the App.js.
+
 
 	
