@@ -1,4 +1,7 @@
-import { useState } from "react"
+import { useState } from "react";
+import { BiSearch } from 'react-icons/bi';
+import { Button, Form, FormControl, InputGroup } from 'react-bootstrap';
+
 
 
 
@@ -15,14 +18,19 @@ const SearchBar=({onSearch})=>{
 
     }
 
-    return(
-        <form onSubmit={handleSubmit}>
+    return (
+        <Form onSubmit={handleSubmit}>
+            <InputGroup className="mb-3">
             
-            <input type="text" placeholder="Search Movies....." value={searchTerm}  onChange={handleChange}/>
+            <FormControl type="text" placeholder="Search Movies" className= "mr-sm-2" value={searchTerm}  onChange={handleChange} />
             
-            
-            <button className="btn btn-primary" type="submit">Search</button>
-        </form>
+            <InputGroup.Text>
+            <Button variant= "outline-success" type= "submit" style={{ marginLeft: '5px', marginTop: '5px'}}>
+                <BiSearch /> Search
+                </Button>
+                </InputGroup.Text>
+            </InputGroup>
+        </Form>
     )
 }
 

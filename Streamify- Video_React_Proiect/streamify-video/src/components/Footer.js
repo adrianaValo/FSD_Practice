@@ -2,13 +2,19 @@
 
 function Footer() {
     return (
-        <div className= "row bg-dark">
-            <h5 className="text-warning">@copyright 2024</h5>
-            <h6 className="text-primary">Developed by: Adriana</h6>
-
+      <footer className="fixed-bottom bg-dark text-light">
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <h5>@Copyright 2024</h5>
+            </div>
+            <div className="col">
+              <h6>Developed by Adriana</h6>
+            </div>
+          </div>
         </div>
-
+      </footer>
     );
-}
-
-export default Footer;
+  }
+  
+  export default Footer;

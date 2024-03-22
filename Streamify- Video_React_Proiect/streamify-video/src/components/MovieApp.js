@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import axios from 'axios';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import { Container, Row, Col, Spinner } from 'react-bootstrap';
 
 const MovieApp=()=>{
 
@@ -37,17 +38,39 @@ const MovieApp=()=>{
 
 
     return(
-    <div>
-
-        <h1>My Movie</h1>
         
-         <SearchBar onSearch={fetchMovies}/>
+    <Container style= {{backgroundColor: '#e7f2f9' }}>
 
-         {loading && <p>Loading....</p>}
-         {error && <p>{error}</p>}
+        <Col>
 
-         <MovieList movies={movies}/>
-    </div>);
-}
+        <h1 className='text-center mt-5 mb-4'>Movie List</h1>
+        
+        <SearchBar onSearch={fetchMovies}/>
+
+        </Col>
+
+        <Row className='justify-content-center'>
+            <Col className='text-center'>
+
+            {loading && <Spinner animation= "border" role="status" className="mt-5">
+                
+                <span className='sr-only'>Loading....</span>
+                </Spinner>}
+
+            {error && <p className='text-danger mt-5'>{error}</p>}
+
+            </Col>
+
+        </Row>
+
+         
+        <Row>
+            <Col>
+                <MovieList movies={movies} />   
+            </Col>
+        </Row>
+         
+    </Container>);
+};
 
 export default MovieApp;
