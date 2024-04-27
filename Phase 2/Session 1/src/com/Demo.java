@@ -1,3 +1,4 @@
+package com;
 
 public class Demo {
 
@@ -6,7 +7,7 @@ public class Demo {
 		System.out.println("Welcome to Java");
 		System.out.println("Welcome to Java");
 		System.out.println("Welcome to Java");
-		System.out.println("Welcome to Java");
+
 	}
 
 }
