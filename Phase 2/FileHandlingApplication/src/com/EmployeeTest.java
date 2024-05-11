@@ -7,7 +7,6 @@ import java.io.ObjectOutputStream;
 
 public class EmployeeTest {
 
-<<<<<<< HEAD
 	public static void main(String[] args) throws Exception{
 //	Employee emp1 = new Employee(100, "Steven", 45000);
 //	System.out.println(emp1);
@@ -24,9 +23,8 @@ public class EmployeeTest {
 	System.out.println(emp2);
 	}
 
-}
-=======
-	public static void main(String[] args) throws Exception {
+
+	//public static void main(String[] args) throws Exception {
 //		Employee emp1 = new Employee(100, "Steven", 45000);
 //	System.out.println(emp1);
 ////		// Store object in file
