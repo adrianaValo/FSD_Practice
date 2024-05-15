@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>WElcome to HTMl Page</h2>
+<h2>WElcome to HTML Page</h2>
 <%!int a,b,sum; %>
 <%
 System.out.println("Welcome to JSP Page on server console");
