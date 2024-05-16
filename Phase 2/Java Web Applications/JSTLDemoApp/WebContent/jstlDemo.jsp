@@ -13,7 +13,7 @@
 int a=10;
 int m=100;
 int n=50;
-	String names[] = {"Steven","Lex","John","Neema","Raj"};
+	String names[] = {"Ana","Maria","Ion","Radu","Andrei"};
 	request.setAttribute("names", names);
 out.println("Welcome to JSP Page using scriptlet tag, Value of a "+a);
 if(m>n){
@@ -32,10 +32,10 @@ if(m>n){
 <core:set var="n1" value="5000"></core:set>
 <p>if condition using jstl </p>
 <core:if test="${Integer.parseInt(m1) > Integer.parseInt(n1)}">
-	<core:out value="m is largest"></core:out>
+	<core:out value="m is bigger"></core:out>
 </core:if>
 <core:if test="${ Integer.parseInt(m1) < Integer.parseInt(n1) }">
-	<core:out value="n is largest"></core:out>
+	<core:out value="n is bigger"></core:out>
 </core:if>
 <h2>All names retrieve using scriptlet tag </h2>
 <%

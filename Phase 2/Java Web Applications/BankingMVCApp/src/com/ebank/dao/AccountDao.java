@@ -1,0 +1,70 @@
+package com.ebank.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import com.ebank.bean.Account;
+import com.ebank.ressource.DbRessource;
+
+public class AccountDao {
+
+	public int createAccount(Account account) {
+		try {
+			Connection con = DbRessource.getDbConnection();
+			PreparedStatement pstmt = con.prepareStatement("insert into account(emailid,amount) values(?,?)");
+			pstmt.setString(1, account.getEmailid());
+			pstmt.setFloat(2, account.getAmount());
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.err.println(e);
+			return 0;
+		}
+	}
+	
+	public float checkBalance(String emailid) {
+		try {
+			Connection con = DbRessource.getDbConnection();
+			PreparedStatement pstmt = con.prepareStatement("select amount from account where emailid=?");
+			pstmt.setString(1, emailid.trim());
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				float amount = rs.getFloat(1);
+				System.out.println(amount);
+				return amount;	
+			}
+		
+		} catch (Exception e) {
+			System.err.println(e);
+		}
+		return 0;
+	}
+	
+	public int deposite(Account account) {
+		try {
+			Connection con = DbRessource.getDbConnection();
+			PreparedStatement pstmt = con.prepareStatement("update account set amount = amount + ? where emailid=?");
+			pstmt.setFloat(1, account.getAmount());
+			pstmt.setString(2, account.getEmailid());
+			return pstmt.executeUpdate();
+		
+		} catch (Exception e) {
+			System.err.println(e);
+		}
+		return 0;
+	}
+	
+	public int withdrawn(Account account) {
+		try {
+			Connection con = DbRessource.getDbConnection();
+			PreparedStatement pstmt = con.prepareStatement("update account set amount = amount - ? where emailid=?");
+			pstmt.setFloat(1, account.getAmount());
+			pstmt.setString(2, account.getEmailid());
+			return pstmt.executeUpdate();
+		
+		} catch (Exception e) {
+			System.err.println(e);
+		}
+		return 0;
+	}
+}
