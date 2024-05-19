@@ -1,0 +1,164 @@
+1.  Create Dynamic Web Project
+- module version 3.1
+- select Generate XML
+
+2. Convert Project to Maven
+
+3. Add the dependencies for SQL Connector and JSTL:
+
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>8.0.16</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>1.2</version>
+	</dependency>
+
+<source>11</source>
+<target>11</target>  (otherwise, the server doesn't start)
+
+- Right-click-> Force update 
+
+
+4. Create the first JSP index.jsp page.
+
+- Create a form in the index.jsp
+
+5. Create a Servlet = controller: LoginSignInController in the package com.ebanking.controller
+
+- we will use the post method from it
+- so, to the form in the index.jsp, add as method= "post" and action= "LoginSignInController" 
+
+6. Create a DB: ebanking
+- create database ebanking;
+- use ebanking;
+- create table login(emailid varchar(30), password varchar(30), typeofuser enum('manager', 'customer'));
+
+7. Create the bean Java class in the package com.ebanking.ebean
+	private String emailid;
+	private String password;
+	private String typeofuser;
+
+- create Constructor, setters and getters...
+
+8. In the LoginSignInController: write the data in the doPost method, because doGet is not secure.
+
+9. Create Java service class, in the package com.ebanking.service 
+Dao class LoginDao in the package com.ebanking.dao
+Ressource class Db DbResource in the package com.ebanking.resource
+
+10. In the Resource class we are connecting the database with JDBC
+
+11. in the LoginDao create the methods for SignIn and SignUp. benefits: we are using the DbResource class, so we don't have to write the lines again.
+
+12. in service Layer we are calling the 2 methods SignIn and SignUp and create the logik for them.
+
+13. Go into the LoginSignInController and create the object LoginService and replace the result from empty to ls.signIn method result.
+
+14. Create new Servlet for the controller LoginSignUpController in the same package com.ebanking.controller.
+- inseide the doPost method copy the code from SignIn Controller and change it
+- call the signUp method
+- instead of index.jsp, call the signUp.jsp
+- in both controllers add the line: response.setContentType("text/html");
+
+- In SignUp Controller: we receive the emailid, the password, type of user;
+- make the sett for Login
+- create RequestDispatcher;
+- Create the service object
+- call the signUp
+
+15. Create the signUp.jsp and copy the code from index.jsp
+- in this one call the SignUpController
+- create the <a href= "index.jsp">Login Page</a>
+- in the index.jsp add <a href= "signUp.jsp">SignUp Page</a>
+
+16. Create the customerhome.jsp and managerhome.jsp pages.
+
+17. In the LoginSignInController hs = HttpSession is used in session scope, when you want to share from one page to another.
+- modify in customerhome.jsp: add ${sessionScope.name}
+- same code for managerhome.jsp
+- the name is displayed in the welcome message
+============================================================================
+18. Create a new table ccount- for the account details:
+create table account(accno int primary key auto_increment, emailid varchar(30), amount float, foreign key(emailid) references login(emailid));
+
+19. Create the bean Class
+
+20. Create AccountService Class
+
+21. Create AccountDao Class:
+
+- PreparedStatement for createAccount and 
+
+22. in the LoginService:
+
+- after the customer signs up (in the SignUp method), we are creating the Account also => Account obj
+- set an initial Ammount of 1000
+- create new AccountDao obj
+- add a condition, only when you are a customer to do this task
+
+23. Create the JSP Pages: checkBalance, withdraw, deposit.
+- link these pages in the customerhome JSP Page
+
+24. Create the second method for checkBalance in the AccountDao.
+- depends on the Email ID
+
+25. Create the third method for deposite in the AccountDao.
+- depends on the Email ID
+
+26. Create the method for withdraw in the AccountDao.
+- depends on the Email ID
+
+27. Call these 3 methods from Service Layer
+- in the AccountService create new AccountDao
+- prepare the methods: withdrwan, deposite, checkBalance
+
+28. Create  Servlets AccountCheck Controller, AccountdepositController, AccountWithdraw
+
+
+29. In the customerhome.jsp add the controllers in the href.
+- we are passing the controller in the href and the emailid
+
+30. In the AccountCheckController, inside in the doGet method:
+- create AccountService obj
+- create HttpSession obj
+- sendRedirect to the checkBalance page
+
+31. In the checkBalance page.
+
+32. Copy the form from index.jsp and add it in the withdrawn page
+- add in the withdrawn the Controller Acccount...
+- modify with emailid and amount
+- add buttons withdraw and reset
+- make the emailid readonly, not allowed to change it
+
+33. Copy the same logic in the deposite.jsp
+- change the Controller
+
+34. in the AccountDepositeController make the doPost method
+- make the amount Float, because we parse it as string
+
+35. Copy the code in the AccountWithdraw...Controller and modify it corresponding to the method.
+- in both of the controllers add the response.setContentType("text/html");
+
+36. Make the Manager see all the customer accounts, goint into AccountDao
+- create the method viewAllAccounts
+
+37. Going into the AccountService call the viewAllAccounts function.
+
+38. Create the Servlet AccountViewController
+- in the doGet method
+
+39. Create viewAllAccount JSP
+- add the tag with JSTL
+- create table
+
+
+
+
+
