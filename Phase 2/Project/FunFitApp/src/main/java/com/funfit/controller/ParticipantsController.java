@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.funfit.bean.Batch;
 import com.funfit.bean.Participants;
 import com.funfit.service.ParticipantsService;
 
@@ -37,25 +38,39 @@ public class ParticipantsController extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter pw = response.getWriter();
-		response.setContentType("text/html");
-		String fname = request.getParameter("fname");
-		int age = Integer.parseInt(request.getParameter("age"));
-		String phonenumber = request.getParameter("phonenumber");
-		int bid = Integer.parseInt(request.getParameter("bid"));
-		RequestDispatcher rd = request.getRequestDispatcher("addParticipants.jsp");
+	
+		 String action = request.getParameter("action");
+
+	        if ("delete".equals(action)) {
+	        	PrintWriter pw = response.getWriter();
+	            response.setContentType("text/html");
+	            int pid = Integer.parseInt(request.getParameter("pid"));
+	            String result = ps.deleteParticipant(pid);  // Calling deleteParticipants method in ParticipantsService
+	            pw.print(result);
+	            
+	        } else {
+
+	        	PrintWriter pw = response.getWriter();
+	        	response.setContentType("text/html");
+	        	String fname = request.getParameter("fname");
+	    		int age = Integer.parseInt(request.getParameter("age"));
+	    		String phonenumber = request.getParameter("phonenumber");
+	    		int bid = Integer.parseInt(request.getParameter("bid"));
+	    		RequestDispatcher rd = request.getRequestDispatcher("addParticipants.jsp");
+	    		
+	    		Participants pp = new Participants();
+	    		pp.setFname(fname);
+	    		pp.setAge(age);
+	    		pp.setPhonenumber(phonenumber);
+	    		pp.setBid(bid);
+	    		
+	    		String result = ps.addParticipants(pp);
+	    		pw.print(result);
+	    		rd.include(request, response);
+	        }
+	    }
 		
-		Participants pp = new Participants();
-		pp.setFname(fname);
-		pp.setAge(age);
-		pp.setPhonenumber(phonenumber);
-		pp.setBid(bid);
-		
-		String result = ps.addParticipants(pp);
-		pw.print(result);
-		rd.include(request, response);
-		
-	}
+	
 	
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

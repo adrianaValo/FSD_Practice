@@ -53,11 +53,28 @@ public class DbResource {
 
 - call the methods from the Dao Layer
 
-4. Create controller Servlets: BatchController and ParticipantController.
+10.  Perform CRUD Operations using JDBC.
+
+10. Create DB and Tables in MySQL:
+
+create database funfit;
+create table batch(bid int primary key auto_increment, typeofbatch enum('morning', 'evening'), time varchar(10));
+create table participants(pid int primary key auto_increment, fname varchar(30), age int, phonenumber varchar(10), bid int, foreign key(bid) references batch(bid) on delete set null);
+
+on delete set null -> because when the batch doesn't exist (is deleted), we want to set the bid to NULL in the participants table
+
+
+
+
+13. Build and run the project on the Apache Tomcat server.
+
+4. Create controller Servlets: BatchController and ParticipantController:
+
+- in Participant Servlet implement CRUD operations using doGet, doPost methods.
+
+ - in Batch Servlet implement CRUD Operations.
 
 5. Create a JSP Page to add the batch: addBatch.
-
-
 
 7. Create a JSP Page to add the participants: addParticipants.
 
@@ -72,23 +89,20 @@ public class DbResource {
 - because we call the participantsController twice, we are adding a flag 
 - add the flag value in the doGet method of the BatchController
 
+10. In the viewBatches.jsp add the JSTL taglib:
 
+-  <%taglib uri = "http://java.sun.com/jsp/jstl/core" prefix= "core" %>
+- create the table to view all batches in the viewBatches.jsp
+- create the table to view all the participants in the viewParticipants.jsp
 
-10.  Perform CRUD Operations using JDBC.
+11. Add the Bootstrap for styling to the JSP Pages.
 
-10. Create DB and Tables in MySQL:
+12. Delete Batch from the viewBatches table:
 
-create database funfit;
-create table batch(bid int primary key auto_increment, typeofbatch enum('morning', 'evening'), time varchar(10));
-create table participants(pid int primary key auto_increment, fname varchar(30), age int, phonenumber varchar(10), bid int, foreign key(bid) references batch(bid) on delete set null);
+- add the button Delete in the viewBatches JSP
+- in the BatchDao add the deleteBatch method
+- add deleteBatch method in the BatchService Class
+- in the BatchController , in the doPost method add the delete
 
-on delete set null -> because when the batch doesn't exist (is deleted), we want to set the bid to NULL in the participants table
-
-
-11. In Participant Servlet implement CRUD operations using doGet, doPost methods.
-
-12. In Batch Servlet implement CRUD Operations.
-
-13. Build and run the project on the Apache Tomcat server.
 
 14. Package the project as  JAR using Maven Package Goal.

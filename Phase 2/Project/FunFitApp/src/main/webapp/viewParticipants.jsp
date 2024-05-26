@@ -29,6 +29,13 @@
                     <td><core:out value="${participant.getAge()}"></core:out></td>
                     <td><core:out value="${participant.getPhonenumber()}"></core:out></td>
                     <td><core:out value="${participant.getBid()}"></core:out></td>
+                    <td>
+                        <form action="ParticipantsController" method="post" style="display:inline;">
+                            <input type="hidden" name="action" value="delete">
+                            <input type="hidden" name="pid" value="<core:out value='${participant.getPid()}'/>">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
                 </tr>
             </core:forEach>
         </tbody>

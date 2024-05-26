@@ -18,4 +18,13 @@ public class ParticipantsService {
 	public List<Participants> viewAllParticipants() {
 		return pd.viewAllParticipants();
 	}
+	
+	// Delete participants using the ID
+		public String deleteParticipant(int pid) {
+	        if (pd.deleteParticipant(pid) > 0) {
+	            return "Participant deleted successfully";
+	        } else {
+	            return "Failed to delete participant";
+	        }
+	    }
 }

@@ -20,5 +20,14 @@ public class BatchService {
 	public List<Batch> viewAllBatch() {
 		return db.viewAllBatches();
 	}
+	
+	// Delete batches using the ID
+	public String deleteBatch(int bid) {
+        if (db.deleteBatch(bid) > 0) {
+            return "Batch deleted successfully";
+        } else {
+            return "Failed to delete batch";
+        }
+    }
 
 }

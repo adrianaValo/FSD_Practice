@@ -46,4 +46,16 @@ public class ParticipantsDao {
 		}
 		return listOfParticipants;
 	}
+	
+	public int deleteParticipant(int pid) {
+        try {
+            Connection con = DbResource.getDbConnection();
+            PreparedStatement pstmt = con.prepareStatement("delete from participants where pid = ?");
+            pstmt.setInt(1, pid);
+            return pstmt.executeUpdate();
+        } catch (Exception e) {
+            System.err.println(e);
+            return 0;
+        }
+    }
 }
