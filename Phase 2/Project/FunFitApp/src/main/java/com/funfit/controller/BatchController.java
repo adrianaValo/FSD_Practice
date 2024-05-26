@@ -39,8 +39,8 @@ public class BatchController extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
-
+        //add the condition if the parameter is delete => call the deleteBatch function
+    	String action = request.getParameter("action");
         if ("delete".equals(action)) {
         	PrintWriter pw = response.getWriter();
             response.setContentType("text/html");
@@ -48,7 +48,7 @@ public class BatchController extends HttpServlet {
             String result = bs.deleteBatch(bid);  // Calling deleteBatch method in BatchService
             pw.print(result);
             
-        } else {
+        } else { // else call the addBatch method
             PrintWriter pw = response.getWriter();
             response.setContentType("text/html");
             String typeofbatch = request.getParameter("typeofbatch");

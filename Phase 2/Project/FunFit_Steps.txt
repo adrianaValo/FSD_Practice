@@ -104,5 +104,12 @@ on delete set null -> because when the batch doesn't exist (is deleted), we want
 - add deleteBatch method in the BatchService Class
 - in the BatchController , in the doPost method add the delete
 
+13. Delete Participant from the viewParticipants table:
+
+- add the button Delete in the viewParticipants JSP as a new column of the table
+- in the ParticipantsDao add the deleteParticipant method
+- add deleteParticipant method in the ParticipantsService Class
+- in the ParticipantsController , in the doPost method add the delete (if actione = delete)
+
 
 14. Package the project as  JAR using Maven Package Goal.

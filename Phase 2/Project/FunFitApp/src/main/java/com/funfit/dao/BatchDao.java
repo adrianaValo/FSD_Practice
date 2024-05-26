@@ -11,7 +11,8 @@ import com.funfit.resource.DbResource;
 
 
 public class BatchDao {
-
+	
+	// Add batch method
 		public int addBatch(Batch batch) {
 			try {
 				Connection con = DbResource.getDbConnection();
@@ -24,7 +25,7 @@ public class BatchDao {
 				return 0;
 			}
 		}
-		
+		// method to list all the batches
 		public List<Batch> viewAllBatches() {
 			List<Batch> listOfBatch = new ArrayList<>();
 			try {
@@ -45,6 +46,7 @@ public class BatchDao {
 			return listOfBatch;
 		}
 		
+		// delete the batch after the bid
 		public int deleteBatch(int bid) {
 	        try {
 	            Connection con = DbResource.getDbConnection();

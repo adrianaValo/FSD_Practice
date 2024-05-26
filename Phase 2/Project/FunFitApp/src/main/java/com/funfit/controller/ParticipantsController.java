@@ -40,7 +40,7 @@ public class ParticipantsController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		 String action = request.getParameter("action");
-
+		 // if the parameter of the action is delete, then call the deleteParticipant method
 	        if ("delete".equals(action)) {
 	        	PrintWriter pw = response.getWriter();
 	            response.setContentType("text/html");

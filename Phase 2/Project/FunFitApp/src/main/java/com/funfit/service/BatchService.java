@@ -8,6 +8,7 @@ import com.funfit.dao.BatchDao;
 public class BatchService {
 	
 	BatchDao db = new BatchDao(); //create BatchDao obj
+	
 	public String addBatch(Batch batch) {
 		if(db.addBatch(batch) > 0) {
 			return "Batch details added";
@@ -21,7 +22,7 @@ public class BatchService {
 		return db.viewAllBatches();
 	}
 	
-	// Delete batches using the ID
+	// Delete batches using the ID =  bid
 	public String deleteBatch(int bid) {
         if (db.deleteBatch(bid) > 0) {
             return "Batch deleted successfully";
