@@ -1,0 +1,94 @@
+1. Create Dynamic Web Project FunFitApp-> Generate web.xml -> Convert it to Maven.
+
+2. Add dependencies to the pom.xml file for: SQL connector and JSTL:
+
+<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>8.0.16</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>1.2</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>3.1.0</version>
+    <scope>provided</scope>
+</dependency>
+
+Update the Project.
+
+3. Create Java bean Classes: Participant Class and Batch Class: setter and getter methods.
+
+4. Create Resource Class DbResource under the package com.funfit.resource:
+
+- create the connection for the DB
+
+public class DbResource {
+	public static Connection getDbConnection () {
+		try {
+	Class.forName("com.mysql.cj.jdbc.Driver");
+	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/funfit", "root", "admin");
+	return con;
+		} catch (Exception e) {
+			System.err.println(e);
+			return null;
+		}
+	}
+
+5. Create Dao Layer with Resource: BatchDao and ParticipantsDao classes.
+
+ - BatchDao - 2 methods: addBatch and viewAllBatches
+
+ - ParticipantsDao - 2 methods: addParticipants and viewAllParticipants
+
+6. Create Service Layer: LoginService and ParticipantsService.
+
+- call the methods from the Dao Layer
+
+4. Create controller Servlets: BatchController and ParticipantController.
+
+5. Create a JSP Page to add the batch: addBatch.
+
+
+
+7. Create a JSP Page to add the participants: addParticipants.
+
+- we are calling all the batches here, using core:forEach
+
+- in index.jsp add the BatchController, we will use the get method to see all the available batches on the page
+
+8. Create viewBatches and viewParticipants JSP Pages.
+
+9. In index.jsp add the View Batch and View Participants a href options:
+
+- because we call the participantsController twice, we are adding a flag 
+- add the flag value in the doGet method of the BatchController
+
+
+
+10.  Perform CRUD Operations using JDBC.
+
+10. Create DB and Tables in MySQL:
+
+create database funfit;
+create table batch(bid int primary key auto_increment, typeofbatch enum('morning', 'evening'), time varchar(10));
+create table participants(pid int primary key auto_increment, fname varchar(30), age int, phonenumber varchar(10), bid int, foreign key(bid) references batch(bid) on delete set null);
+
+on delete set null -> because when the batch doesn't exist (is deleted), we want to set the bid to NULL in the participants table
+
+
+11. In Participant Servlet implement CRUD operations using doGet, doPost methods.
+
+12. In Batch Servlet implement CRUD Operations.
+
+13. Build and run the project on the Apache Tomcat server.
+
+14. Package the project as  JAR using Maven Package Goal.

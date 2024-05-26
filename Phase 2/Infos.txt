@@ -1,0 +1,28 @@
+To create a WAR File (in case we want to deploy it on a server, different from Tomcat):
+
+- Right-Click on the project -> Run as -> Maven install
+- After the successful Build -> in the target file of the Project, we cann find the war file
+- the entire project is packed in the war file
+
+Dependencies for the pom.xml file:
+
+<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>8.0.16</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>1.2</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>3.1.0</version>
+    <scope>provided</scope>
+</dependency>
