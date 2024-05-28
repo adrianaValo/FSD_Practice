@@ -53,63 +53,59 @@ public class DbResource {
 
 - call the methods from the Dao Layer
 
-10.  Perform CRUD Operations using JDBC.
+7.  Perform CRUD Operations using JDBC.
 
-10. Create DB and Tables in MySQL:
+8. Create DB and Tables in MySQL:
 
 create database funfit;
 create table batch(bid int primary key auto_increment, typeofbatch enum('morning', 'evening'), time varchar(10));
 create table participants(pid int primary key auto_increment, fname varchar(30), age int, phonenumber varchar(10), bid int, foreign key(bid) references batch(bid) on delete set null);
 
-on delete set null -> because when the batch doesn't exist (is deleted), we want to set the bid to NULL in the participants table
+on delete set null -> because when the batch doesn't exist (it is deleted), we want to set the bid to NULL in the participants table
 
+9. Build and run the project on the Apache Tomcat server.
 
-
-
-13. Build and run the project on the Apache Tomcat server.
-
-4. Create controller Servlets: BatchController and ParticipantController:
+10. Create controller Servlets: BatchController and ParticipantController:
 
 - in Participant Servlet implement CRUD operations using doGet, doPost methods.
 
  - in Batch Servlet implement CRUD Operations.
 
-5. Create a JSP Page to add the batch: addBatch.
+11. Create a JSP Page to add the batch: addBatch.
 
-7. Create a JSP Page to add the participants: addParticipants.
+12. Create a JSP Page to add the participants: addParticipants.
 
 - we are calling all the batches here, using core:forEach
 
 - in index.jsp add the BatchController, we will use the get method to see all the available batches on the page
 
-8. Create viewBatches and viewParticipants JSP Pages.
+13. Create viewBatches and viewParticipants JSP Pages.
 
-9. In index.jsp add the View Batch and View Participants a href options:
+14. In index.jsp add the View Batch and View Participants a href options:
 
 - because we call the participantsController twice, we are adding a flag 
 - add the flag value in the doGet method of the BatchController
 
-10. In the viewBatches.jsp add the JSTL taglib:
+15. In the viewBatches.jsp add the JSTL taglib:
 
 -  <%taglib uri = "http://java.sun.com/jsp/jstl/core" prefix= "core" %>
 - create the table to view all batches in the viewBatches.jsp
 - create the table to view all the participants in the viewParticipants.jsp
 
-11. Add the Bootstrap for styling to the JSP Pages.
+16. Add the Bootstrap for styling to the JSP Pages.
 
-12. Delete Batch from the viewBatches table:
+17. Delete Batch from the viewBatches table:
 
 - add the button Delete in the viewBatches JSP
 - in the BatchDao add the deleteBatch method
-- add deleteBatch method in the BatchService Class
+- call deleteBatch method in the BatchService Class
 - in the BatchController , in the doPost method add the delete
 
-13. Delete Participant from the viewParticipants table:
+18. Delete Participant from the viewParticipants table:
 
 - add the button Delete in the viewParticipants JSP as a new column of the table
 - in the ParticipantsDao add the deleteParticipant method
-- add deleteParticipant method in the ParticipantsService Class
+- call deleteParticipant method in the ParticipantsService Class
 - in the ParticipantsController , in the doPost method add the delete (if actione = delete)
 
-
-14. Package the project as  JAR using Maven Package Goal.
+19. Package the project as  JAR using Maven Package Goal.
