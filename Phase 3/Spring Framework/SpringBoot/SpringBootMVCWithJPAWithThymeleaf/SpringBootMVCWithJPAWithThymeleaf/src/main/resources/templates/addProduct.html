@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<span th:text ="${msg}"></span>
+<h2>Add Product</h2>
+<form action="addProduct" method="post">
+<label>PId</label>
+<input type="number" name="id"/><br/>
+<label>PName</label>
+<input type="text" name="pname"/><br/>
+<label>Price</label>
+<input type="number" name="price"/><br/>
+<input type="submit" value="submit"/>
+<input type="reset" value="reset"/>
+</form>
+<hr/>
+<h2>Add Product with thymeleaf form</h2>
+<form action="addProductInDb" method="post" th:object="${pp}">
+<label>PId</label>
+<input type="number" name="id" th:field="*{id}"/><br/>
+<label>PName</label>
+<input type="text" name="pname" th:field="*{pname}"/><br/>
+<label>Price</label>
+<input type="number" name="price" th:field="*{price}"/><br/>
+<input type="submit" value="submit"/>
+<input type="reset" value="reset"/>
+</form>
+<a href="/">Index Page</a>
+</body>
+</html>
