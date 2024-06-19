@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h2>Select Pid to update</h2>
+<form action="searchProductById" method="get" >
+<label>PId</label>
+<select name="id">
+		<div th:each ="p:${products}">
+			<option th:value="${p.id}"><span th:text="${p.id}"></span></option>
+		</div>
+</select>
+<input type="submit" value="Select Product Id to Update"/>
+<input type="reset"/>
+</form>
+
+</body>
+</html>

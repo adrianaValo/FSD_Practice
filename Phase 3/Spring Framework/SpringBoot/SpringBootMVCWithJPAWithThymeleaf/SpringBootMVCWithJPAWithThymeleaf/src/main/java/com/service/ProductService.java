@@ -62,4 +62,18 @@ public class ProductService {
 			return "product not present";
 		}
 	}
+	
+	public Product searchProductById(int pid) {
+		
+		//productDao.save(product);
+		
+		Optional<Product> result = productDao.findById(pid);
+		if(result.isPresent()) {
+			Product p = result.get();		// p hold old record 
+			return p;
+		}else {
+			return null;
+		}
+	}
+	
 }

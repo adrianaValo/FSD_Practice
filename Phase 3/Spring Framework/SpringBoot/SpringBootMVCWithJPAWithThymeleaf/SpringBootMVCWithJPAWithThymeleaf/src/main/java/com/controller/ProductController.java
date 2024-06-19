@@ -84,4 +84,49 @@ public class ProductController {
 		model.addAttribute("products", listOfProducts);
 		return "viewProduct";			// it render to viewProduct.html 
 	}
+	
+	// to open deleteProduct.html 
+	@RequestMapping(value = "delete",method = RequestMethod.GET)
+	public String deleteProductPageOpen(Model model) {
+		
+		List<Product> listOfProducts = productService.findAllProducts();
+		model.addAttribute("products", listOfProducts);
+		
+		return "deleteProduct";
+	}
+	
+	@RequestMapping(value = "deleteProduct",method = RequestMethod.GET)
+	public String deleteProduct(HttpServletRequest req, Model model) {
+		int pid = Integer.parseInt(req.getParameter("id"));
+		String result = productService.deleteProduct(pid);
+		List<Product> listOfProducts = productService.findAllProducts();
+		model.addAttribute("products", listOfProducts);
+		model.addAttribute("msg", result);
+		return "deleteProduct";
+	}
+	
+	@RequestMapping(value = "update",method = RequestMethod.GET)
+	public String updateFormOpen(Model model) {
+		List<Product> listOfProducts = productService.findAllProducts();
+		model.addAttribute("products", listOfProducts);
+		return "loadProduct";
+	}
+	
+	@RequestMapping(value = "searchProductById",method = RequestMethod.GET)
+	public String searchProductById(HttpServletRequest req, Model model) {
+		int pid = Integer.parseInt(req.getParameter("id"));
+		Product p = productService.searchProductById(pid);
+		model.addAttribute("product", p);
+		return "updateProduct";
+	}
+	
+	@RequestMapping(value = "updateProductFromDb",method = RequestMethod.POST)
+	public String updateProductFromDb(Product product, Model model) {
+		String result = productService.updateProduct(product);
+		Product p = productService.searchProductById(product.getId());
+		model.addAttribute("msg", result);
+		model.addAttribute("product", p);
+		return "updateProduct";
+	}
+	
 }
