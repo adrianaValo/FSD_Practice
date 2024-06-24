@@ -34,12 +34,16 @@ public class OrdersService {
 			
 			return "Order placed succesfully";
 		}else {
-			return "Produt not present ";
+			return "Product not present ";
 		}
 		
 		}catch(Exception e) {
 			System.err.println(e);
 			return "Order didn't place";
 		}
+	}
+	
+	public Object[] viewOrders() {
+		return ordersRepository.vieworderinfo();
 	}
 }

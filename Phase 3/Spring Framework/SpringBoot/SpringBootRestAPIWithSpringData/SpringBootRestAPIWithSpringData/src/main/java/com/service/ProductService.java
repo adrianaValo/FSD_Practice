@@ -14,16 +14,16 @@ public class ProductService {
 	
 	@Autowired
 	ProductRepository productRepository;
-	
+
 	public List<Product> findAllProduct() {
 		return productRepository.findAll();
-}
+	}
 	
 	public String storeProduct(Product product) {
 		Optional<Product> result = productRepository.findById(product.getPid());
 		if(result.isPresent()) {
-			return "Product ID must be unique";
-		} else {
+			return "Product id must be unique";
+		}else {
 			productRepository.save(product);
 			return "Product stored successfully";
 		}
@@ -34,10 +34,9 @@ public class ProductService {
 		if(result.isPresent()) {
 			Product p = result.get();
 			p.setPrice(product.getPrice());
-			productRepository.saveAndFlush(p); // update
+			productRepository.saveAndFlush(p);		// update 
 			return "Product price updated successfully";
-		} else {
-			
+		}else {
 			return "Product not present";
 		}
 	}
@@ -46,11 +45,10 @@ public class ProductService {
 		Optional<Product> result = productRepository.findById(product.getPid());
 		if(result.isPresent()) {
 			Product p = result.get();
-			p.setQty(product.getQty());
-			productRepository.saveAndFlush(p); // update
-			return "Product quantity updated successfully";
-		} else {
-			
+				p.setQty(product.getQty());
+			productRepository.saveAndFlush(p);		// update 
+			return "Product qty updated successfully";
+		}else {
 			return "Product not present";
 		}
 	}
@@ -60,7 +58,7 @@ public class ProductService {
 		if(result.isPresent()) {
 			productRepository.deleteById(pid);
 			return "Product deleted successfully";
-		} else {
+		}else {
 			return "Product not present";
 		}
 	}
@@ -69,11 +67,10 @@ public class ProductService {
 		Optional<Product> result = productRepository.findById(pid);
 		if(result.isPresent()) {
 			Product p = result.get();
-			return p.toString(); // 
-		} else {
-			return "Product not present"; // return object in string format make sure toString method overrided 
+			return p.toString();   // return object in string format make sure toString method override
+		}else {
+			return "Product not present";
 		}
 	}
-	
 	
 }

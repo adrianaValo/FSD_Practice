@@ -50,7 +50,7 @@ public class ProductController {
 	
 	@DeleteMapping(value = "delete/{pid}")
 	public String deleteProduct(@PathVariable("pid") int pid) {
-		return productService.deleteProductById(pid);
+		return productService.deleteProductById(pid);		
 	}
 	
 	@PatchMapping(value = "updateprice",consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -62,6 +62,4 @@ public class ProductController {
 	public String updateProductQty(@RequestBody Product product) {
 		return productService.updateProductQty(product);
 	}
-	
-	
 }
