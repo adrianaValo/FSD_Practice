@@ -1,4 +1,3 @@
-Microservices -> Eureka:
 
 1. Eureka Server:
 
@@ -8,12 +7,12 @@ Starter -Eureka Server
 
 Port number 8761 add two properties in application.properties file and run this project.
 
-2. Second project - book the cab: create starter.
+2. Second project - provide the cab fare. Port number: 8181.
 
-3. Third project - provide the cab fare: create starter.
+3. Third project - book the cab: create starter. Port number: 8282.
 
 
-4. Create entity class: Fare + setters and getters
+4. Create entity class for the Fare App: Fare + setters and getters
 
 @Entity
 public class Fare {
