@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Calculate Cab Fare</title>
+</head>
+<body>
+    <h1>Calculate Cab Fare</h1>
+    <form action="#" th:action="@{/booking/fare}" method="get">
+        <div>
+            <label for="departure">Departure:</label>
+            <input type="text" id="departure" name="departure" required />
+        </div>
+        <div>
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination" required />
+        </div>
+        <div>
+            <label for="typeofcab">Type of Cab:</label>
+            <input type="text" id="typeofcab" name="typeofcab" required />
+        </div>
+        <div>
+            <button type="submit">Calculate Fare</button>
+        </div>
+    </form>
+    <div th:if="${fare}">
+        <p>Fare: <span th:text="${fare}"></span></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+Microservices -> Eureka:
+
+1. Eureka Server:
+
+Starter -Web Starter
+
+Starter -Eureka Server
+
+Port number 8761 add two properties in application.properties file and run this project.
+
+2. Second project - book the cab: create starter.
+
+3. Third project - provide the cab fare: create starter.
+
+4. In the CabBookingMicroservice app:
+
+- create entity class: Booking
+- add setters, getters
+
+5. CabBookingMicroservice:
+
+- create the interface repository: BookingRepository which extends JpaRepository
