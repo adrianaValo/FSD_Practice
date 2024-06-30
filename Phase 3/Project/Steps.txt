@@ -12,11 +12,67 @@ Port number 8761 add two properties in application.properties file and run this 
 
 3. Third project - provide the cab fare: create starter.
 
-4. In the CabBookingMicroservice app:
+
+4. Create entity class: Fare + setters and getters
+
+@Entity
+public class Fare {
+	@Id
+	private int fid;
+	private String departure;
+	private String destination;
+	private String typeofcab;
+	private float amount;
+
+5. Create Interface repository: FareRepository which extends JpaRepository with query:
+
+@Query("select cf.amount from Fare cf where cf.departure = :departure and cf.destination = :destination and cf.typeofcab= :typeofcab")
+	Float findAmountByDestinationAndDepartureAndTypeofcab(
+	        @Param("departure") String departure,
+	        @Param("destination") String destination,
+	        @Param("typeofcab") String typeofcab
+	    );
+
+6. Create Service Layer FareService with the methods: createFare and getFareAmount
+
+7. Create RestController FareController in which we createFare and findFareAmount depending on the departure, destination, typeofcab.
+
+8. Test the CabFareMicroservice App with Postman:
+
+- createFare: POST  URL http://localhost:8181/fare/createFare, JSON:
+
+{
+    "fid" : 4,
+    "destination" : "Mangalia",
+    "departure" : "Braila",
+    "typeofcab" : "Dacia",
+    "amount" : 500
+}
+=> Fare created
+
+- findFare: GET URL http://localhost:8181/fare/findFareAmount with the Parameters departure, destination, typeofcab
+
+9. Create CabBookingMicroservice with the starters: Web Starter, JPA, Dev Tool, Eureka Client, Thymeleaf and dependency MySQL.
+
+10. In the CabBookingMicroservice app:
 
 - create entity class: Booking
 - add setters, getters
 
-5. CabBookingMicroservice:
+11. CabBookingMicroservice Repository:
 
 - create the interface repository: BookingRepository which extends JpaRepository
+
+12. Create the Service Class: BookingService with the methods:
+
+- findTheCarfare - here we are using Resttemplate to call the function findFareAmount from the Microservice CABFAREMICROSERVICE
+
+- bookCab
+
+13. Create the Controller
+
+14. Create the HTML Thymeleaf pages: index.html, bookcab.html, cabfare.html.
+
+15. Create the Unit tests for testCreateFare and testGetFareAmount from service layer.
+
+16. Create the JAR File of the project: Right click on the project- Run As- > Maven Build.
