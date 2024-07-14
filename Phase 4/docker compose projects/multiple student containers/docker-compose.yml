@@ -1,0 +1,20 @@
+version: '3.6'
+services:
+  akash-image:
+    image: adrianavalo/my-reactjs:v2
+    container_name: adriana-reactjs-container
+    ports:
+      - 85:80
+  student1:
+    image: buschfunk/react-docker-app:latest
+    ports:
+      - 82:80
+  student2:
+    image: dragosmn/my-reactjs:a2
+    ports:
+      - 83:80
+  student3:
+    image: paulodm/my-reactjsgood:v2
+    ports:
+      - 84:80
+    
