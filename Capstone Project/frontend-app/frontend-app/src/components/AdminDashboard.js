@@ -1,12 +1,15 @@
-import React from 'react'
+import Logout from "./Logout";
 
-const AdminDashboard = () => {
+function AdminDashboard() {
 
-  return (
-    <div>
-        <h2>Welcome to Admin Dashboard</h2>
-    </div>
-  )
+
+    return(
+        <div>
+           <h2>Welcome to Admin Dashboard</h2>
+
+           <Logout></Logout>
+        </div>
+    )
 }
 
-export default AdminDashboard
+export default AdminDashboard;

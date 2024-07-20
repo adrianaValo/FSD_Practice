@@ -18,3 +18,10 @@ services:
     depends_on:
       - mysql-service
     restart: always
+
+  react-js-service:
+    build: ./frontend-app/frontend-app/
+    container_name: reactjs-container
+    ports:
+      - 80:80
+    restart: always 
