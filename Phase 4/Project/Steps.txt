@@ -1,0 +1,55 @@
+1. Create the project locally: starters Spring Web and Thymeleaf.
+
+2. Use the port 9090.
+
+3. Create the index.html Thymeleaf page with Bootstrap to design it.
+
+4. Create the simple controller to call the index page.
+
+5. Create the JAR file using Maven install => JAR File is created.
+
+6. Create the Dockerfile.
+
+FROM openjdk:17
+COPY ./target/pet-clinic-0.0.1-SNAPSHOT.jar .
+CMD ["java","-jar","pet-clinic-0.0.1-SNAPSHOT.jar"]
+
+7. Build the image using: 
+
+docker build -t my-spring-boot . -f Dockerfile
+
+8. Run the app on different ports:
+
+docker run -d -p 9393:9090 my-spring-boot
+
+docker run -d -p 9494:9090 my-spring-boot
+
+9. Create the Git Repository
+
+10. Open a Jenkins container on port 8484:
+
+http://localhost:8484/
+
+11. Create Jenkins Pipeline with script and Build it.
+
+12. Check the console output.
+
+13. Change something in the project, in index.html, the h2 title and push it to GitHub. In order to check if the project is rebuild.
+
+14. Create EC2 Instance.
+
+15. Install Java, Git, Maven, Docker.
+
+16. Start Docker:
+
+sudo service docker start
+
+17. Pull the Docker image from the Docker Hub:
+
+>docker push adrianavalo/my-spring-boot:v1
+
+18. Run the image using:
+
+sudo docker run -d -p 9090:9090 adrianavalo/my-spring-boot:v1
+
+19. Run the app in browser using public IP
