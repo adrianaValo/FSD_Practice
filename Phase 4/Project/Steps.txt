@@ -52,4 +52,27 @@ sudo service docker start
 
 sudo docker run -d -p 9090:9090 adrianavalo/my-spring-boot:v1
 
-19. Run the app in browser using public IP
+19. Run the app in browser using public IP:
+
+http://3.90.224.3:9090/
+
+20. Clone the project from GitHub:
+
+https://github.com/adrianaValo/Deploy_Project4.git
+
+21. Create the JAR File:
+
+sudo mvn clean package
+
+22. Create the image in EC2:
+
+sudo docker build -t my-spring-boot . -f Dockerfile 
+
+23. Run the image:
+
+sudo docker run -d -p 9090:9090 my-spring-boot
+
+24. Verify if the Project works using public IP from the instance:
+
+
+
